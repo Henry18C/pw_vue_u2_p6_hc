@@ -1,15 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Mi primer proyecto VUE Henry Coyago"/>
+
+<Contador> </Contador>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import Contador from "./components/Contador.vue"
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Contador
   }
 }
 </script>
@@ -24,3 +27,9 @@ export default {
   margin-top: 60px;
 }
 </style>
+
+
+
+
+
+
