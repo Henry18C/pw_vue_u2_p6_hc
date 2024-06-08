@@ -1,5 +1,5 @@
 <template>
-  <h2>{{presentar}}</h2>
+  <h2>{{ presentar }}</h2>
   <!--<p>{{ numero }} <sup>2</sup>={{ calcularCuadrado() }}</p>  LLAMADA A UN METODO-->
   <p>{{ numero }} <sup>2</sup>={{ calcular }}</p>
   <!--LLAMADA A UNA PROPIEDAD COMPUTADA-->
@@ -12,13 +12,24 @@
 
 <script>
 export default {
-
-  props:["titulo","propN"],
+  //props:["titulo","num"], PRIMERA FORMA DE DECLARA UN PROPS (BASICA)
+  props: {
+    //FORMA GENERAL DE DECLARA
+    titulo: String,
+    num: {
+      type: Number,
+      requiered: false, //Me dice que es requerido o no deacuerdo a el valor booleano
+      default: 10,
+      validator(value) {
+        //toda la programacion
+        return value > 0; //retorno booleano
+      },
+    },
+  },
   data() {
     return {
       /*prop reactivas*/
-      numero: 5,
-
+      numero: this.num,
     };
   },
   methods: {
@@ -49,13 +60,13 @@ export default {
       return this.numero * this.numero;
     },
 
-    presentar(){
-      if(this.titulo!==undefined){
+    presentar() {
+      if (this.titulo !== undefined) {
         return this.titulo;
-      }else{
-       return  this.titulo="Texto que quiero";
+      } else {
+        return "Texto que quiero";
       }
-    }
+    },
   },
 };
 </script>

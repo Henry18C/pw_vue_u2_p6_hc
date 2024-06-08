@@ -1,26 +1,30 @@
 <template>
+  
 
-<img src="./assets/logo.png" alt="NONE">
-<Contador titulo="Estudiante"/>   <!---[3]-->
-<Contador titulo="Profesor"/>
-<Contador />
-
+  <img src="./assets/logo.png" alt="NONE" />
+  <Contador titulo="Estudiante" :num="-1" />
+  <!---[3]-->
+  <Contador titulo="Profesor"  />
+  <Contador :num="calcularValor()" />
 
 
 </template>
 
 <script>
-
-import Contador from "./components/Contador.vue" /*[1]*/ 
-
+import Contador from "./components/Contador.vue"; /*[1]*/
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Contador  /*[2]*/ 
+    Contador /*[2]*/,
+  },
 
+  methods:{
+    calcularValor(){
+      return 10+2;
+    }
   }
-}
+};
 </script>
 
 <style>
