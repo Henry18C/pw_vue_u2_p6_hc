@@ -9,9 +9,9 @@
 
     <p>Recuera teminar la pregunta con el signo de interrogacion (?)</p>
 
-    <div class="respuesta">
+    <div v-show="mensaje" class="respuesta">
       <h2>{{ pregunta }}</h2>
-      <h1>{{ respuesta }}</h1>
+      <h1>{{ respuesta==='yes'? 'SI':'NO!' }}</h1>
     </div>
   </div>
 </template>
@@ -22,11 +22,13 @@ export default {
     return {
       pregunta: null,
       respuesta: null,
-      img: null
+      img: null,
+      mensaje:false,
     };
   },
   watch: {
     pregunta(value, oldvalue) {
+      this.mensaje=false;
       console.log({ value, oldvalue });
       if (!value.includes("?")) {
         return; //salgase del observador
@@ -36,6 +38,7 @@ export default {
 
       console.log("Se hizo la pregunta");
       this.obtenerRespuesta();
+      this.mensaje=true;
 
     },
   },
@@ -60,7 +63,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 img,
 .oscuro {
   max-height: 100%;
@@ -106,4 +109,10 @@ p {
 .respuesta {
   margin-top: 90px;
 }
+
+
+ 
+
+
 </style>
+
