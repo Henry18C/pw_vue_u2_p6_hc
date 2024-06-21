@@ -1,30 +1,43 @@
 <template>
- 
-<div class="pokemon-container">
-    <img v-show="monstar"
-    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6.svg"
-    alt="No se puede cargar el pokemon"
-  />
+  <div class="pokemon-container">
+    <img
+      v-show="monstarPokemon"
+      :src="imagenFuente"
+      alt="No se puede cargar el pokemon"
+    />
 
-  <img v-show="!monstar"
-    class="oculta-pokemon"
-    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6.svg"
-    alt="No se puede cargar el pokemon"
-  />
-
-</div>
-
+    <img
+      v-show="!monstarPokemon"
+      class="oculta-pokemon"
+      :src="imagenFuente"
+      alt="No se puede cargar el pokemon"
+    />
+  </div>
 </template>
 
 <script>
 export default {
+  props: {
+    idPokemon: { type: Number, 
+      required: true },
+    monstarPokemon:{
+      required:true,
+      type:Boolean,
 
-    data() {
+    }
+  },
+  data() {
     return {
-      
       monstar: false,
-    
-    }}};
+    };
+  },
+
+  computed: {
+    imagenFuente() {
+      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.idPokemon}.svg`;
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -38,8 +51,7 @@ img {
   right: 40%;
 }
 
-
-.pokemon-container{
-    height: 200px;
+.pokemon-container {
+  height: 200px;
 }
 </style>
