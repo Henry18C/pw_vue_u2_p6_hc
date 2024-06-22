@@ -16,7 +16,7 @@ function obtenerAleatorio(min, max) {
 const obtenerPokemons = async (longitud) => {
     const vectorFinal = [];
     const vector = obtenerVectorNumerico(longitud);
-    for (let i = 0; i < vector, length; i++) {
+    for (let i = 0; i < vector.length; i++) {
         vectorFinal[i] = await construirPokemon(vector[i]);
     }
 

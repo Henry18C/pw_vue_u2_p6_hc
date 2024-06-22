@@ -18,17 +18,16 @@
 <script>
 export default {
   props: {
-    idPokemon: { type: Number, 
-      required: true },
-    monstarPokemon:{
-      required:true,
-      type:Boolean,
-
-    }
+    idPokemon: { type: Number, required: true, default: 1 },
+    monstarPokemon: {
+      required: true,
+      type: Boolean,
+    },
   },
   data() {
     return {
       monstar: false,
+      ocultarOpciones: false
     };
   },
 
