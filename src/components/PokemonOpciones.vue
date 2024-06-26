@@ -5,7 +5,7 @@
         v-for="pokemon in pokemons"
         :key="pokemon.id"
         @click="$emit('seleccionPokemon',{ident:pokemon.id,nomb:pokemon.nombre})" 
-      > <!---Emite al padre. Como primer argumeton el nombre de la emision y como segundo el dato que deseo emitir       -->
+      > <!---Emite al padre. Como primer argumeto el nombre de la emision y como segundo el dato que deseo emitir       -->
         {{ pokemon.nombre }}
       </li>
     </ul>
